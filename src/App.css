@@ -1,0 +1,5 @@
+#app {
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: property duration timing-function delay;
+  transition: property duration timing-function delay;
+}
