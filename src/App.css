@@ -1,5 +1,30 @@
+:root {
+  --width: 80%
+}
+@media (min-width: 768px) {
+  :root {
+  --width: 40%;
+  }
+}
+body {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #95024F, #F703E9 );
+ 
+}
 #app {
-  -webkit-transition: all 0.5s linear;
+  -webkit-transition: all 0.3s linear;
   -moz-transition: property duration timing-function delay;
   transition: property duration timing-function delay;
+}
+.container {
+  background: white;
+  width: var(--width);
+  margin: 0 auto;
+}
+h1 {
+  
+}
+label {
+  display: block;
 }
