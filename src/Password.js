@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-
+const blue = "#0023ff";
 class Password extends Component {
     constructor(props) {
         super(props);
@@ -30,19 +30,19 @@ class Password extends Component {
         let input = e.target.value;
 
         //Check for length
-        const lengthColor = input.length >= 6 ? "green" : "gray";
+        const lengthColor = input.length >= 6 ? blue : "gray";
 
         //check if it contains a number
         const numReg = /\d/;
-        const numberColor = numReg.test(e.target.value) == true ? "green" : "gray";
+        const numberColor = numReg.test(e.target.value) == true ? blue : "gray";
 
         //check if it contains an uppercase letter
         const upperCaseReg = /[A-Z]/
-        const upperCaseColor = upperCaseReg.test(e.target.value) == true ? "green" : "gray";
+        const upperCaseColor = upperCaseReg.test(e.target.value) == true ? blue : "gray";
 
         //check if it contains a lowercase letter
         const lowerCaseReg = /[a-z]/
-        const lowerCaseColor = lowerCaseReg.test(e.target.value) == true ? "green" : "gray";
+        const lowerCaseColor = lowerCaseReg.test(e.target.value) == true ? blue : "gray";
 
         this.setState({
             input: e.target.value,
@@ -51,6 +51,8 @@ class Password extends Component {
             upperCaseColor: upperCaseColor,
             lowerCaseColor: lowerCaseColor,
         })
+
+        this.props.onChange(input);
     }
 
     render() {
@@ -58,7 +60,7 @@ class Password extends Component {
             <div>
                 <label for="password">Password</label>
                 <input type="password" id="password" onFocus={this.handleFocus} onBlur={this.handleBlur} onChange={this.handleInput} />
-                <ul style={{ transition: "all 0.5s linear", overflow: "hidden", maxHeight: this.state.constraintsHeight, }}>
+                <ul style={{ maxHeight: this.state.constraintsHeight }} className="list">
                     <li style={{ color: this.state.lengthColor }}>Must be at least 6 characters</li>
                     <li style={{ color: this.state.numberColor }}>Contains at least 1 number</li>
                     <li style={{ color: this.state.upperCaseColor }}>Contains at least one uppercase</li>
@@ -68,5 +70,6 @@ class Password extends Component {
         )
     }
 }
+
 
 export default Password;

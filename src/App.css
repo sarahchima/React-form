@@ -6,11 +6,14 @@
   --width: 40%;
   }
 }
+* {
+  box-sizing: border-box;
+}
 body {
   height: 100%;
   width: 100%;
   background: linear-gradient(to right, #95024F, #F703E9 );
- 
+  padding-top: 4rem;
 }
 #app {
   -webkit-transition: all 0.3s linear;
@@ -21,10 +24,37 @@ body {
   background: white;
   width: var(--width);
   margin: 0 auto;
+  padding: 2rem;
+}
+.list{
+  transition: all 0.5s linear;
+  overflow: hidden;
+  padding: 0;
 }
 h1 {
-  
+  text-align: center;
 }
 label {
   display: block;
+}
+form {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+input {
+  width: 100%;
+  height: 35px;
+  font-size: 16px;
+  padding: 0 1rem;
+}
+input[type="submit"] {
+  border: 0;
+  background-color: #95024F;
+  color: white;
+}
+li {
+  font-style: italic;
+  font: 14px;
+  line-height: 20px;
 }

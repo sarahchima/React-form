@@ -29,11 +29,11 @@ class Username extends Component {
         const input = e.target.value;
 
         //Checks if length is more than 3 characters
-        const lengthColor = input.length >= 3 ? "green": "#a1a1a4"; 
+        const lengthColor = input.length >= 3 ? "blue": "#a1a1a4"; 
 
         //checks if length contains a special character
         const specialCharTest = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
-        const charColor = specialCharTest.test(input) != true ? "green": "#a1a1a4"; 
+        const charColor = specialCharTest.test(input) != true ? "blue": "#a1a1a4"; 
         this.setState({
             input: e.target.value,
             lengthColor: lengthColor,
@@ -45,7 +45,7 @@ class Username extends Component {
             <div>
                 <label for="username">Username</label>
                 <input type="text" onChange={this.handleChange} onFocus={this.handleFocus} onBlur={this.handleBlur}/>
-                <ul style={{ transition: "all 0.5s linear", overflow: "hidden", maxHeight: this.state.constraintsHeight, }}>
+                <ul style={{ maxHeight: this.state.constraintsHeight, }} className="list">
                     <li style={{color:this.state.lengthColor}}>Must be at least 3 characters</li>
                     <li style={{color:this.state.charColor}}>Must contain only letters and numbers</li>
                 </ul>
